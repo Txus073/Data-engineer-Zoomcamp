@@ -68,7 +68,7 @@ services:
             driverClassName: org.postgresql.Driver
             username: kestra
             password: k3str4
-        kestra:
+        Kestra:
           server:
             basicAuth:
               username: "admin@kestra.io" # it must be a valid email address
@@ -81,6 +81,11 @@ services:
               basePath: "/app/storage"
           queue:
             type: postgres
+          ai:
+            type: gemini
+            gemini:
+              model-name: gemini-2.5-flash
+              api-key: ${GEMINI_API_KEY}
           tasks:
             tmpDir:
               path: /tmp/kestra-wd/tmp
