@@ -10,6 +10,7 @@ CREATE OR REPLACE TABLE `kestra-taxi-zoomcamp.zoomcamp.yellow_tripdata_non_parti
 SELECT * FROM `kestra-taxi-zoomcamp.zoomcamp.external_yellow_tripdata`;
 
 
+<<<<<<< HEAD
 
 
 2-  
@@ -18,6 +19,16 @@ FROM `kestra-taxi-zoomcamp.zoomcamp.external_yellow_tripdata`;
  	
 SELECT COUNT(DISTINCT PULocationID) 
 FROM `kestra-taxi-zoomcamp.zoomcamp.yellow_tripdata_non_partitioned`
+=======
+2-  
+SELECT COUNT(DISTINCT PULocationID) 
+FROM `kestra-taxi-zoomcamp.zoomcamp.external_yellow_tripdata`;
+ 
+SELECT COUNT(DISTINCT PULocationID) 
+FROM `kestra-taxi-zoomcamp.zoomcamp.yellow_tripdata_non_partitioned`;
+	
+
+>>>>>>> af79fe4c0a9004d87a29f8015f663c9cad45a4f2
 
 
 3- 
@@ -27,6 +38,10 @@ FROM `kestra-taxi-zoomcamp.zoomcamp.yellow_tripdata_non_partitioned`;
 SELECT PULocationID, DOLocationID
 FROM `kestra-taxi-zoomcamp.zoomcamp.yellow_tripdata_non_partitioned`;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> af79fe4c0a9004d87a29f8015f663c9cad45a4f2
 
 4-
 SELECT count(*)
@@ -53,7 +68,11 @@ WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15';
 SELECT DISTINCT(VendorID)
 FROM `kestra-taxi-zoomcamp.zoomcamp.yellow_tripdata_partitioned_clustered`
 WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15';
+<<<<<<< HEAD
 	
+=======
+		
+>>>>>>> 
 
 
 
