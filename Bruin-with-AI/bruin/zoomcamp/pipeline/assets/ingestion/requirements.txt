@@ -1,0 +1,6 @@
+# Dependencies for trips ingestion
+pandas==2.2.0
+requests==2.31.0
+pyarrow==14.0.1
+python-dateutil==2.8.2
+
