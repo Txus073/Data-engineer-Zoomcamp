@@ -1,0 +1,60 @@
+
+Create external table:
+
+CREATE OR REPLACE EXTERNAL TABLE `kestra-taxi-zoomcamp.zoomcamp.external_yellow_tripdata` 
+OPTIONS ( format = 'PARQUET', uris = ['gs://txus-module-3-homework/yellow_tripdata_2024-*.parquet'] );
+
+Create materialised table:
+
+CREATE OR REPLACE TABLE `kestra-taxi-zoomcamp.zoomcamp.yellow_tripdata_non_partitioned` AS
+SELECT * FROM `kestra-taxi-zoomcamp.zoomcamp.external_yellow_tripdata`;
+
+
+2-  
+SELECT COUNT(DISTINCT PULocationID) 
+FROM `kestra-taxi-zoomcamp.zoomcamp.external_yellow_tripdata`;
+ 
+SELECT COUNT(DISTINCT PULocationID) 
+FROM `kestra-taxi-zoomcamp.zoomcamp.yellow_tripdata_non_partitioned`;
+	
+
+
+
+3- 
+SELECT PULocationID
+FROM `kestra-taxi-zoomcamp.zoomcamp.yellow_tripdata_non_partitioned`;
+
+SELECT PULocationID, DOLocationID
+FROM `kestra-taxi-zoomcamp.zoomcamp.yellow_tripdata_non_partitioned`;
+
+
+
+4-
+SELECT count(*)
+FROM `kestra-taxi-zoomcamp.zoomcamp.yellow_tripdata_non_partitioned`
+WHERE fare_amount = 0;
+
+	
+
+5-
+CREATE OR REPLACE TABLE `kestra-taxi-zoomcamp.zoomcamp.yellow_tripdata_partitioned_clustered`
+PARTITION BY DATE(tpep_dropoff_datetime)
+CLUSTER BY VendorID AS
+SELECT * FROM `kestra-taxi-zoomcamp.zoomcamp.external_yellow_tripdata`;
+
+
+
+6-
+SELECT DISTINCT(VendorID)
+FROM `kestra-taxi-zoomcamp.zoomcamp.yellow_tripdata_non_partitioned`
+WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15';
+
+	
+
+SELECT DISTINCT(VendorID)
+FROM `kestra-taxi-zoomcamp.zoomcamp.yellow_tripdata_partitioned_clustered`
+WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15';
+		
+
+
+

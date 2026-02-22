@@ -1,3 +1,17 @@
+.env_encoded
+.env
+service-account.json
+*.json
+__pycache__/
+.DS_Store
+*~
+*.swp
+.fuse_hidden*
+.directory
+
+# Python
+__pycache__/
+*.py[cod]
 .venv/
 __pycache__/
 *.db
