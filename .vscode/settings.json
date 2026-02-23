@@ -1,0 +1,12 @@
+{
+    "sqltools.connections": [
+        {
+            "name": "taxi_data",
+            "accessMode": "Read Only",
+            "previewLimit": 50,
+            "driver": "DuckDB",
+            "databaseFilePath": "/home/user/05-Bruin/duckdb.db."
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
